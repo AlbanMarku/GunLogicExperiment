@@ -1,7 +1,11 @@
+from numpy import random
+
+mylist = ["CHANGING!!!", "NEW MAG!!!", "SPY PLA- I MEAN, TAC RELOAD", "OUT!!!", "NEUGH!!!"]
+
 def standardReload(ammoReserve,ammoCap,ammoLoaded):
 
     if not canReload(ammoReserve,ammoCap,ammoLoaded):
-        print("CHANGING!!!")
+        print(mylist[random.randint(len(mylist))])
         ammoNeeded = ammoCap - ammoLoaded
 
         if ammoNeeded < ammoReserve:
@@ -16,14 +20,12 @@ def standardReload(ammoReserve,ammoCap,ammoLoaded):
             ammoLoaded += ammoReserve
             ammoReserve -= ammoReserve
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-        input("Press enter to exit:")
-    else:
-        tempAskStats()
+    tempAskStats()
             
 def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     
     if not canReload(ammoReserve,ammoCap,ammoLoaded):
-        print("TAC RELOAD!!!")
+        print(mylist[random.randint(len(mylist))])
         if ammoCap < ammoReserve:
             if ammoLoaded == 0:
                 ammoLoaded = ammoCap - 1
@@ -35,9 +37,8 @@ def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
             ammoLoaded = ammoReserve
             ammoReserve -= ammoReserve
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-        input("Press enter to exit:")
-    else:
         tempAskStats()
+
         
 def canReload(ammoReserve, ammoCap, ammoLoaded):
     if ammoReserve <= 0:
@@ -53,6 +54,11 @@ def tempAskStats():
     res = int(input('res?'))
     cap = int(input('cap?'))
     lod = int(input('lod?'))
-    tacticalReload(res,cap,lod)
+    userInput = int(input("1: Conserve ammo or 2: fast reload?"))
+
+    if userInput == 1:
+        standardReload(res,cap,lod)
+    else:
+        tacticalReload(res,cap,lod)
 
 tempAskStats()
