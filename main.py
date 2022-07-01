@@ -2,11 +2,16 @@ def standardReload(a,b,c):
     ammoReserve = a
     ammoCap = b
     ammoLoaded = c
-    if ammoCap == ammoLoaded:
-        print("Gun already loaded")
+
+    if ammoReserve <= 0:
+        print("Empty ammo. Can't reload.")
+
+    elif ammoCap == ammoLoaded:
+        print("Gun already loaded.")
     else:
         print("CHANGING!!!")
         ammoNeeded = ammoCap - ammoLoaded
+        
         if ammoNeeded < ammoReserve:
             ammoReserve = ammoReserve - ammoNeeded
             ammoLoaded = ammoLoaded + ammoNeeded
