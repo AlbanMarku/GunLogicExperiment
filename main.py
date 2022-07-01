@@ -37,7 +37,7 @@ def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
             ammoLoaded = ammoReserve
             ammoReserve -= ammoReserve
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-        tempAskStats()
+    tempAskStats()
 
         
 def canReload(ammoReserve, ammoCap, ammoLoaded):
@@ -51,10 +51,10 @@ def canReload(ammoReserve, ammoCap, ammoLoaded):
         return False
 
 def tempAskStats():
-    res = int(input('res?'))
-    cap = int(input('cap?'))
-    lod = int(input('lod?'))
-    userInput = int(input("1: Conserve ammo or 2: fast reload?"))
+    res = int(input('Reserve ammo remaining? Typically you got like 90 without scavanger pro:'))
+    cap = int(input('Magazine size including the chamber? 31 is typical you know how it is:'))
+    lod = int(input('Amount in the mag?:'))
+    userInput = int(input("1: Conserve ammo or 2: fast reload?:"))
 
     if userInput == 1:
         standardReload(res,cap,lod)
