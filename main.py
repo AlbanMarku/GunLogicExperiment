@@ -19,7 +19,9 @@ def standardReload(ammoReserve,ammoCap,ammoLoaded):
         else:
             ammoLoaded += ammoReserve
             ammoReserve -= ammoReserve
+        printGun()
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+    
     tempAskStats()
             
 def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
@@ -36,7 +38,9 @@ def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
         else:
             ammoLoaded = ammoReserve
             ammoReserve -= ammoReserve
+        printGun()
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+
     tempAskStats()
 
         
@@ -60,5 +64,8 @@ def tempAskStats():
         standardReload(res,cap,lod)
     else:
         tacticalReload(res,cap,lod)
+
+def printGun():
+    print("                                          *@######&%%%%%%%%&&     ,         /&  \n                        ,,,,,,,,,,,,,,,,,,,//((&&&%%&&%%@@%%//(#%%@//(@@@&&/**% \n        &&%%%%%%%%%%%%&/*///*///*///*///*///*//%%%%%%%%%%%@@, \n   @%%%%%%%%%%%%%%%%%%%*  %%%%# @  #/&(//*(@ \n    %%%%%%%%%%%%%@        %%%%         /*(/(& \n    #%%%%%%@             %%%%           */////  \n     %%.                .%%%             %(/#///*  \n                                           &#/*/// \n                                              /(@ ")
 
 tempAskStats()
