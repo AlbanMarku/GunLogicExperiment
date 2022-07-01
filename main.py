@@ -1,7 +1,4 @@
-def standardReload(a,b,c):
-    ammoReserve = a
-    ammoCap = b
-    ammoLoaded = c
+def standardReload(ammoReserve,ammoCap,ammoLoaded):
 
     if not canReload(ammoReserve,ammoCap,ammoLoaded):
         print("CHANGING!!!")
