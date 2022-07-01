@@ -5,21 +5,25 @@ def standardReload(a,b,c):
 
     if ammoReserve <= 0:
         print("Empty ammo. Can't reload.")
-
-    elif ammoCap == ammoLoaded:
-        print("Gun already loaded.")
     else:
-        print("CHANGING!!!")
-        ammoNeeded = ammoCap - ammoLoaded
-        
-        if ammoNeeded < ammoReserve:
-            ammoReserve = ammoReserve - ammoNeeded
-            ammoLoaded = ammoLoaded + ammoNeeded
+
+        if ammoLoaded != 0: #Cap size should be plus one when accounting for round remaining in chamber.
+            ammoCap += 1
+
+        if ammoCap == ammoLoaded:
+            print("Gun already loaded.")
         else:
-            ammoLoaded = ammoLoaded + ammoReserve
-            ammoReserve = 0
-        print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-        
+            print("CHANGING!!!")
+            ammoNeeded = ammoCap - ammoLoaded
+
+            if ammoNeeded < ammoReserve:
+                ammoReserve -=ammoNeeded
+                ammoLoaded += ammoNeeded
+            else:
+                ammoLoaded += ammoReserve
+                ammoReserve -= ammoReserve
+            print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+            
         
 res = int(input('res?'))
 cap = int(input('cap?'))
