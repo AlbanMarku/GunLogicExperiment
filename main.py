@@ -7,9 +7,6 @@ def standardReload(a,b,c):
         print("Empty ammo. Can't reload.")
     else:
 
-        if ammoLoaded != 0: #Cap size should be plus one when accounting for round remaining in chamber.
-            ammoCap += 1
-
         if ammoCap == ammoLoaded:
             print("Gun already loaded.")
         else:
@@ -17,8 +14,13 @@ def standardReload(a,b,c):
             ammoNeeded = ammoCap - ammoLoaded
 
             if ammoNeeded < ammoReserve:
-                ammoReserve -=ammoNeeded
-                ammoLoaded += ammoNeeded
+                
+                if ammoLoaded ==0:
+                    ammoLoaded += ammoNeeded - 1
+                    ammoReserve -=ammoNeeded -1
+                else:
+                    ammoLoaded += ammoNeeded
+                    ammoReserve -=ammoNeeded
             else:
                 ammoLoaded += ammoReserve
                 ammoReserve -= ammoReserve
