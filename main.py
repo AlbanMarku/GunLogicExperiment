@@ -16,6 +16,9 @@ def standardReload(ammoReserve,ammoCap,ammoLoaded):
             ammoLoaded += ammoReserve
             ammoReserve -= ammoReserve
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+        input("Press enter to exit:")
+    else:
+        tempAskStats()
             
 def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     
@@ -32,7 +35,10 @@ def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
             ammoLoaded = ammoReserve
             ammoReserve -= ammoReserve
         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-
+        input("Press enter to exit:")
+    else:
+        tempAskStats()
+        
 def canReload(ammoReserve, ammoCap, ammoLoaded):
     if ammoReserve <= 0:
         print("No ammo. Can't reload.")
@@ -43,9 +49,10 @@ def canReload(ammoReserve, ammoCap, ammoLoaded):
     else:
         return False
 
+def tempAskStats():
+    res = int(input('res?'))
+    cap = int(input('cap?'))
+    lod = int(input('lod?'))
+    tacticalReload(res,cap,lod)
 
-res = int(input('res?'))
-cap = int(input('cap?'))
-lod = int(input('lod?'))
-
-tacticalReload(res,cap,lod)
+tempAskStats()
