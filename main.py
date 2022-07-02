@@ -3,27 +3,27 @@ from GunModel import GunModel
 
 mylist = ["CHANGING!!!", "NEW MAG!!!", "SPY PLA- I MEAN, TAC RELOAD!!!", "OUT!!!", "NEUGH!!!"]
 
-def standardReload(ammoReserve,ammoCap,ammoLoaded):
+# def standardReload(ammoReserve,ammoCap,ammoLoaded):
 
-    if not canReload(ammoReserve,ammoCap,ammoLoaded):
-        print(mylist[random.randint(len(mylist))])
-        ammoNeeded = ammoCap - ammoLoaded
+#     if not canReload(ammoReserve,ammoCap,ammoLoaded):
+#         print(mylist[random.randint(len(mylist))])
+#         ammoNeeded = ammoCap - ammoLoaded
 
-        if ammoNeeded < ammoReserve:
+#         if ammoNeeded < ammoReserve:
             
-            if ammoLoaded == 0:
-                ammoLoaded += ammoNeeded - 1
-                ammoReserve -=ammoNeeded -1
-            else:
-                ammoLoaded += ammoNeeded
-                ammoReserve -=ammoNeeded
-        else:
-            ammoLoaded += ammoReserve
-            ammoReserve -= ammoReserve
-        printGun()
-        print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+#             if ammoLoaded == 0:
+#                 ammoLoaded += ammoNeeded - 1
+#                 ammoReserve -=ammoNeeded -1
+#             else:
+#                 ammoLoaded += ammoNeeded
+#                 ammoReserve -=ammoNeeded
+#         else:
+#             ammoLoaded += ammoReserve
+#             ammoReserve -= ammoReserve
+#         printGun()
+#         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
     
-    tempAskStats()
+#     tempAskStats()
             
 def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     
@@ -71,5 +71,6 @@ def printGun():
 
 # tempAskStats()
 # testing class
-ak47 = GunModel(90, 30, 29, True)
-ak47.canReload()
+ak47 = GunModel(90, 30, 0, False)
+ak47.standardReload()
+ak47.standardReload()

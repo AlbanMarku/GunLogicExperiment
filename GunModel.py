@@ -3,10 +3,7 @@ class GunModel:
 		self.reserve = res
 		self.capacity = cap
 		self.chambered = cha
-		if cha:
-			self.loaded = lod + 1
-		else:
-			self.loaded = lod
+		self.loaded = lod
 
 	def get_reserve(self):
 		return self.reserve
@@ -14,11 +11,15 @@ class GunModel:
 	def get_capacity(self):
 		return self.capacity
 
-	def get_loaded(self):
-		return self.loaded
-
 	def get_chambered(self):		
 		return self.chambered
+
+	def get_loaded(self):
+		if self.get_chambered():
+			tot = self.loaded + 1
+		else:
+			tot = self.loaded
+		return self.loaded
 
 	def set_reserve(self, x):
 		self.reserve = x
@@ -37,9 +38,9 @@ class GunModel:
 			dialogue = "Gun is chambered"
 		else:
 			dialogue = "Gun is empty"
-		rounds = str(self.loaded) + " rounds in gun"
-		capper = str(self.capacity) + " mag capacity"
-		remain = str(self.reserve) + " ammo remaining"
+		rounds = str(self.get_loaded()) + " rounds in gun"
+		capper = str(self.get_capacity()) + " mag capacity"
+		remain = str(self.get_reserve()) + " ammo remaining"
 		print(rounds)
 		print(capper)
 		print(remain)
@@ -49,11 +50,30 @@ class GunModel:
 
 		if self.get_reserve() <= 0:
 			print("No ammo. Can't reload.")
-			return True
+			return False
 		elif self.get_capacity() + 1 == self.get_loaded():
 			print("Already loaded.")
-			return True
+			return False
 		else:
 			print("Reloading")
 			print(str(self.get_capacity()) + str(self.get_loaded()) + str(self.get_chambered()))
-			return False
+			return True
+
+	def standardReload(self):
+		if self.canReload():
+			if self.get_chambered():
+				cap = self.get_capacity() + 1
+			else:
+				cap = self.get_capacity()
+
+			ammoNeeded = cap - self.get_loaded()
+
+			if ammoNeeded <= self.get_reserve():
+				self.set_reserve(self.get_reserve() - ammoNeeded)
+				self.set_loaded(self.get_loaded() + ammoNeeded)
+			else:
+				self.set_reserve(self.get_reserve() - self.get_reserve())
+				self.set_loaded(self.get_reserve())
+			
+			self.set_chambered(True)
+		return self.gunStatus()
