@@ -77,3 +77,9 @@ class GunModel:
 			
 			self.set_chambered(True)
 		return self.gunStatus()
+
+	def tempFire(self):
+		if self.get_loaded() > 0:
+			self.set_loaded(self.get_loaded() - 1)
+			if self.get_loaded() < 0:
+				self.set_loaded(0)
