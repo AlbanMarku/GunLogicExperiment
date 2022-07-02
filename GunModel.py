@@ -1,9 +1,10 @@
 class GunModel:
-	def __init__(self, res, cap, lod, cha):
+	def __init__(self, res, cap, lod, cha, skin):
 		self.reserve = res
 		self.capacity = cap
 		self.chambered = cha
 		self.loaded = lod
+		self.skinned = skin
 
 	def get_reserve(self):
 		return self.reserve
@@ -84,6 +85,10 @@ class GunModel:
 			if self.get_loaded() < 0:
 				self.set_loaded(0)
 		return "Shot"
+
+	def printGun(self):
+		return self.skinned
+
 
 # def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     

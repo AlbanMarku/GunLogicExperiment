@@ -2,16 +2,14 @@ from numpy import random
 from GunModel import GunModel
 
 mylist = ["CHANGING!!!", "NEW MAG!!!", "SPY PLA- I MEAN, TAC RELOAD!!!", "OUT!!!", "NEUGH!!!"]
-
-def printGun():
-    print("                                          *@######&%%%%%%%%&&     ,         /&  \n                        ,,,,,,,,,,,,,,,,,,,//((&&&%%&&%%@@%%//(#%%@//(@@@&&/**% \n        &&%%%%%%%%%%%%&/*///*///*///*///*///*//%%%%%%%%%%%@@, \n   @%%%%%%%%%%%%%%%%%%%*  %%%%# @  #/&(//*(@ \n    %%%%%%%%%%%%%@        %%%%         /*(/(& \n    #%%%%%%@             %%%%           */////  \n     %%.                .%%%             %(/#///*  \n                                           &#/*/// \n                                              /(@ ")
+akSkin = "                                          *@######&%%%%%%%%&&     ,         /&  \n                        ,,,,,,,,,,,,,,,,,,,//((&&&%%&&%%@@%%//(#%%@//(@@@&&/**% \n        &&%%%%%%%%%%%%&/*///*///*///*///*///*//%%%%%%%%%%%@@, \n   @%%%%%%%%%%%%%%%%%%%*  %%%%# @  #/&(//*(@ \n    %%%%%%%%%%%%%@        %%%%         /*(/(& \n    #%%%%%%@             %%%%           */////  \n     %%.                .%%%             %(/#///*  \n                                           &#/*/// \n                                              /(@ "
 
 def menu():
     print("1: AK-47")
     selection = input("Enter weapon number:")
 
     if selection == "1":
-        ak47 = GunModel(90,30,31,True)
+        ak47 = GunModel(90,30,31,True, akSkin)
         weaponOptions(ak47)
 
 
@@ -39,7 +37,7 @@ def weaponOptions(gun):
             print(gun.standardReload())
             print("-----------------")
         if option == "4":
-            printGun()
+            print(gun.printGun())
 
         weaponOptions(gun)
 menu()
