@@ -82,7 +82,8 @@ class GunModel:
 	def tempFire(self):
 		if self.get_loaded() > 0:
 			self.set_loaded(self.get_loaded() - 1)
-			if self.get_loaded() < 0:
+			if self.get_loaded() <= 0:
+				self.set_chambered(False)
 				self.set_loaded(0)
 		return "Shot"
 

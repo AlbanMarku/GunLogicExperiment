@@ -26,8 +26,7 @@ def weaponOptions(gun):
         if option == "1":
             print("-----------------")
             print(gun.gunStatus())
-            print("-----------------")
-            
+            print("-----------------")         
         if option == "2":
             print("-----------------")
             print(gun.tempFire())
