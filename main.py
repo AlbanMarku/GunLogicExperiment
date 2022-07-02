@@ -1,6 +1,7 @@
 from numpy import random
+from GunModel import GunModel
 
-mylist = ["CHANGING!!!", "NEW MAG!!!", "SPY PLA- I MEAN, TAC RELOAD", "OUT!!!", "NEUGH!!!"]
+mylist = ["CHANGING!!!", "NEW MAG!!!", "SPY PLA- I MEAN, TAC RELOAD!!!", "OUT!!!", "NEUGH!!!"]
 
 def standardReload(ammoReserve,ammoCap,ammoLoaded):
 
@@ -68,4 +69,7 @@ def tempAskStats():
 def printGun():
     print("                                          *@######&%%%%%%%%&&     ,         /&  \n                        ,,,,,,,,,,,,,,,,,,,//((&&&%%&&%%@@%%//(#%%@//(@@@&&/**% \n        &&%%%%%%%%%%%%&/*///*///*///*///*///*//%%%%%%%%%%%@@, \n   @%%%%%%%%%%%%%%%%%%%*  %%%%# @  #/&(//*(@ \n    %%%%%%%%%%%%%@        %%%%         /*(/(& \n    #%%%%%%@             %%%%           */////  \n     %%.                .%%%             %(/#///*  \n                                           &#/*/// \n                                              /(@ ")
 
-tempAskStats()
+# tempAskStats()
+# testing class
+g1 = GunModel(90,30,30, True)
+g1.gunStatus()
