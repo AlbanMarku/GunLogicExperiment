@@ -84,3 +84,22 @@ class GunModel:
 			if self.get_loaded() < 0:
 				self.set_loaded(0)
 		return "Shot"
+
+# def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
+    
+#     if not canReload(ammoReserve,ammoCap,ammoLoaded):
+#         print(mylist[random.randint(len(mylist))])
+#         if ammoCap < ammoReserve:
+#             if ammoLoaded == 0:
+#                 ammoLoaded = ammoCap - 1
+#                 ammoReserve -= ammoCap - 1
+#             else:
+#                 ammoLoaded = ammoCap
+#                 ammoReserve -= ammoCap - 1
+#         else:
+#             ammoLoaded = ammoReserve
+#             ammoReserve -= ammoReserve
+#         printGun()
+#         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
+
+#     tempAskStats()
