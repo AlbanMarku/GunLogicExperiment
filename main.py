@@ -45,15 +45,15 @@ def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     tempAskStats()
 
         
-def canReload(ammoReserve, ammoCap, ammoLoaded):
-    if ammoReserve <= 0:
-        print("No ammo. Can't reload.")
-        return True
-    elif ammoCap == ammoLoaded:       
-        print("Already loaded.")
-        return True
-    else:
-        return False
+# def canReload(ammoReserve, ammoCap, ammoLoaded):
+#     if ammoReserve <= 0:
+#         print("No ammo. Can't reload.")
+#         return True
+#     elif ammoCap == ammoLoaded:       
+#         print("Already loaded.")
+#         return True
+#     else:
+#         return False
 
 def tempAskStats():
     res = int(input('Reserve ammo remaining? Typically you got like 90 without scavanger pro:'))
@@ -71,5 +71,5 @@ def printGun():
 
 # tempAskStats()
 # testing class
-g1 = GunModel(90,30,30, True)
-g1.gunStatus()
+ak47 = GunModel(90, 30, 29, True)
+ak47.canReload()
