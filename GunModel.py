@@ -45,6 +45,7 @@ class GunModel:
 		print(capper)
 		print(remain)
 		print(dialogue)
+		return "Updated info"
 
 	def canReload(self):
 
@@ -56,7 +57,6 @@ class GunModel:
 			return False
 		else:
 			print("Reloading")
-			print(str(self.get_capacity()) + str(self.get_loaded()) + str(self.get_chambered()))
 			return True
 
 	def standardReload(self):
@@ -76,10 +76,11 @@ class GunModel:
 				self.set_loaded(self.get_reserve())
 			
 			self.set_chambered(True)
-		return self.gunStatus()
+		return "Done"
 
 	def tempFire(self):
 		if self.get_loaded() > 0:
 			self.set_loaded(self.get_loaded() - 1)
 			if self.get_loaded() < 0:
 				self.set_loaded(0)
+		return "Shot"
