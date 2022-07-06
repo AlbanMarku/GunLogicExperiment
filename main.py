@@ -37,6 +37,8 @@ def weaponOptions(gun):
             print("-----------------")
         if option == "4":
             print(gun.printGun())
+        if option == "5":
+            gun.tacticalReload()
 
         weaponOptions(gun)
 menu()

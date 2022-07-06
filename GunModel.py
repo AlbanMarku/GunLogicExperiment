@@ -90,6 +90,17 @@ class GunModel:
 	def printGun(self):
 		return self.skinned
 
+	def tacticalReload(self):
+		if self.canReload():
+
+			if self.get_capacity() < self.get_reserve():
+				self.set_loaded(self.get_capacity())
+				self.set_reserve(self.get_reserve() - self.get_capacity())
+			else:
+				self.set_loaded(self.get_capacity())
+				self.set_reserve(self.get_reserve() - self.get_reserve())
+
+			self.set_chambered(True)
 
 # def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
     
