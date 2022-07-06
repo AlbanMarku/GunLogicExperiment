@@ -10,16 +10,16 @@ class GunModel:
 		return self.reserve
 
 	def get_capacity(self):
-		return self.capacity
+		if self.get_chambered():
+			tot = self.capacity + 1
+		else:
+			tot = self.capacity
+		return tot
 
 	def get_chambered(self):		
 		return self.chambered
 
 	def get_loaded(self):
-		if self.get_chambered():
-			tot = self.loaded + 1
-		else:
-			tot = self.loaded
 		return self.loaded
 
 	def set_reserve(self, x):
@@ -53,7 +53,7 @@ class GunModel:
 		if self.get_reserve() <= 0:
 			print("No ammo. Can't reload.")
 			return False
-		elif self.get_capacity() + 1 == self.get_loaded():
+		elif self.get_capacity() == self.get_loaded():
 			print("Already loaded.")
 			return False
 		else:
@@ -62,12 +62,8 @@ class GunModel:
 
 	def standardReload(self):
 		if self.canReload():
-			if self.get_chambered():
-				cap = self.get_capacity() + 1
-			else:
-				cap = self.get_capacity()
 
-			ammoNeeded = cap - self.get_loaded()
+			ammoNeeded = self.get_capacity() - self.get_loaded()
 
 			if ammoNeeded <= self.get_reserve():
 				self.set_reserve(self.get_reserve() - ammoNeeded)
@@ -97,7 +93,7 @@ class GunModel:
 				self.set_loaded(self.get_capacity())
 				self.set_reserve(self.get_reserve() - self.get_capacity())
 			else:
-				self.set_loaded(self.get_capacity())
+				self.set_loaded(self.get_reserve())
 				self.set_reserve(self.get_reserve() - self.get_reserve())
 
 			self.set_chambered(True)
