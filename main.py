@@ -9,7 +9,7 @@ def menu():
     selection = input("Enter weapon number:")
 
     if selection == "1":
-        ak47 = GunModel(90,30,31,True, akSkin)
+        ak47 = GunModel(90,30,2,True, akSkin)
         weaponOptions(ak47)
 
 
@@ -21,6 +21,7 @@ def weaponOptions(gun):
         print("2: Fire")
         print("3: Reload")
         print("4: Inspect weapon")
+        print("5: Tactical reload")
         option = input("Choose option number:")
 
         if option == "1":

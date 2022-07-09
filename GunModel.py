@@ -88,31 +88,16 @@ class GunModel:
 
 	def tacticalReload(self):
 		if self.canReload():
+			if self.get_chambered():
+				freshMag = self.get_capacity() - 1
+			else:
+				freshMag = self.get_capacity()
 
-			if self.get_capacity() < self.get_reserve():
+			if freshMag < self.get_reserve():
 				self.set_loaded(self.get_capacity())
-				self.set_reserve(self.get_reserve() - self.get_capacity())
+				self.set_reserve(self.get_reserve() - freshMag)
 			else:
 				self.set_loaded(self.get_reserve())
 				self.set_reserve(self.get_reserve() - self.get_reserve())
-
 			self.set_chambered(True)
-
-# def tacticalReload(ammoReserve,ammoCap,ammoLoaded):
-    
-#     if not canReload(ammoReserve,ammoCap,ammoLoaded):
-#         print(mylist[random.randint(len(mylist))])
-#         if ammoCap < ammoReserve:
-#             if ammoLoaded == 0:
-#                 ammoLoaded = ammoCap - 1
-#                 ammoReserve -= ammoCap - 1
-#             else:
-#                 ammoLoaded = ammoCap
-#                 ammoReserve -= ammoCap - 1
-#         else:
-#             ammoLoaded = ammoReserve
-#             ammoReserve -= ammoReserve
-#         printGun()
-#         print("Ammo remaining is " + str(ammoReserve) + " and your mag is loaded to " + str(ammoLoaded))
-
-#     tempAskStats()
+		return "done"
