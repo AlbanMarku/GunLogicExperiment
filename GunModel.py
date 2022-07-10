@@ -137,9 +137,10 @@ class GunModel:
 				self.set_stored(self.get_loaded() - 1)
 			self.set_magIn(False)
 		else:
-			self.set_stored(0)
+			self.set_loaded(self.get_stored())
 			self.set_magIn(True)
-		return "stored"
+			self.set_chambered(True)
+		return "Checkout the gun info now."
 
 	def freshMag(self): # calculates the mag size instead of max capacity. Probs didn't need this if used better object params.
 			if self.get_chambered():
